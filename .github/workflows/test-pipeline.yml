@@ -1,0 +1,104 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Kisan Mausam Alert — Pipeline Test (Dry Run)
+#
+# Runs on every push to main and on every pull request.
+# Does a full end-to-end dry run — fetches live weather, runs the AI, generates
+# alerts — but does NOT send any SMS / WhatsApp.
+#
+# This guarantees the pipeline stays working after every code change.
+# ──────────────────────────────────────────────────────────────────────────────
+
+name: Test Pipeline (Dry Run)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dry-run:
+    name: End-to-End Dry Run
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Python ────────────────────────────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ── 3. Ollama ────────────────────────────────────────────────────────
+      - name: Install Ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+
+      - name: Cache Ollama models
+        uses: actions/cache@v4
+        with:
+          path: ~/.ollama/models
+          key: ollama-llama3.2-3b-v1
+
+      - name: Start Ollama and pull model
+        run: |
+          ollama serve &>/tmp/ollama.log &
+          sleep 5
+          ollama pull llama3.2:3b
+
+      # ── 4. Minimal .env (no real Twilio creds needed for dry run) ────────
+      - name: Create .env for dry-run test
+        run: |
+          cat > .env <<EOF
+          LLM_BASE_URL=http://localhost:11434/v1
+          LLM_API_KEY=ollama
+          LLM_MODEL=llama3.2:3b
+
+          TWILIO_ACCOUNT_SID=ACtest00000000000000000000000000000
+          TWILIO_AUTH_TOKEN=test_token
+          TWILIO_MESSAGING_SERVICE_SID=MGtest0000000000000000000000000000
+          TWILIO_WHATSAPP_FROM=whatsapp:+14155238886
+
+          DATABASE_URL=sqlite:///data/farmers.db
+          LOG_LEVEL=INFO
+          EOF
+
+      # ── 5. Seed DB ───────────────────────────────────────────────────────
+      - name: Seed farmer database
+        run: python scripts/bulk_add_farmers.py --file farmers_sample.json
+
+      # ── 6. Wait for Ollama ───────────────────────────────────────────────
+      - name: Wait for Ollama API
+        run: |
+          for i in $(seq 1 20); do
+            if curl -sf http://localhost:11434/api/tags > /dev/null; then
+              echo "Ollama ready."
+              break
+            fi
+            echo "Waiting... ($i/20)"
+            sleep 3
+          done
+
+      # ── 7. Dry run — verify forecast + AI + alert generation ─────────────
+      - name: Run pipeline dry run
+        run: python main.py --now --dry-run
+
+      # ── 8. Quick forecast sanity check for a known district ─────────────
+      - name: Sanity check — forecast fetch for Pune
+        run: python main.py --test-forecast pune
+
+      # ── 9. Upload logs ───────────────────────────────────────────────────
+      - name: Upload test logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs-${{ github.run_id }}
+          path: logs/
+          retention-days: 3

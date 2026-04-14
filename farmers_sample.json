@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Ramesh Patil",
+    "phone": "+919800001111",
+    "language": "marathi",
+    "state": "Maharashtra",
+    "district": "pune",
+    "crops": ["wheat", "onion", "sugarcane"],
+    "has_cattle": true,
+    "channel": "whatsapp"
+  },
+  {
+    "name": "Suresh Reddy",
+    "phone": "+919800002222",
+    "language": "telugu",
+    "state": "Telangana",
+    "district": "warangal",
+    "crops": ["rice", "cotton"],
+    "has_cattle": false,
+    "channel": "sms"
+  },
+  {
+    "name": "Anand Kumar",
+    "phone": "+919800003333",
+    "language": "hindi",
+    "state": "Uttar Pradesh",
+    "district": "lucknow",
+    "crops": ["wheat", "rice", "mustard"],
+    "has_cattle": true,
+    "channel": "both"
+  },
+  {
+    "name": "Manjunath Gowda",
+    "phone": "+917800004444",
+    "language": "kannada",
+    "state": "Karnataka",
+    "district": "dharwad",
+    "crops": ["cotton", "sunflower"],
+    "has_cattle": true,
+    "channel": "sms"
+  },
+  {
+    "name": "Baldev Singh",
+    "phone": "+918800005555",
+    "language": "punjabi",
+    "state": "Punjab",
+    "district": "ludhiana",
+    "crops": ["wheat", "rice"],
+    "has_cattle": false,
+    "channel": "sms"
+  }
+]

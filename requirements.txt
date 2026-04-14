@@ -1,0 +1,34 @@
+# LLM client (provider-agnostic — works with Ollama, Gemini, OpenAI, any OAI-compatible API)
+openai>=1.30.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.2.0
+
+# Scheduling & Timezone
+schedule>=1.2.1
+pytz>=2024.1
+
+# Database
+sqlalchemy>=2.0.30
+alembic>=1.13.1
+
+# Notifications
+twilio>=9.0.0
+
+# Data processing
+pandas>=2.2.0
+
+# Environment & Config
+python-dotenv>=1.0.1
+
+# HTTP async
+aiohttp>=3.9.5
+
+# XML / RSS parsing
+feedparser>=6.0.11
+
+# Logging
+colorlog>=6.8.2
+
+# Retry logic
+tenacity>=8.3.0

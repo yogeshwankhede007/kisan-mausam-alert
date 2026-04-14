@@ -1,0 +1,128 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Kisan Mausam Alert — Daily Pipeline
+#
+# Runs every day at 11:00 AM IST (05:30 UTC).
+# Fetches live weather + crop data, runs the AI analysis, and sends WhatsApp /
+# SMS alerts to all registered farmers — fully automated, no human trigger.
+#
+# Required GitHub Secrets (Settings → Secrets → Actions):
+#
+#   TWILIO_ACCOUNT_SID          Twilio Account SID
+#   TWILIO_AUTH_TOKEN           Twilio Auth Token
+#   TWILIO_MESSAGING_SERVICE_SID  Twilio Messaging Service SID
+#   TWILIO_WHATSAPP_FROM        e.g. whatsapp:+14155238886
+#   DATA_GOV_IN_API_KEY         (optional) data.gov.in API key
+#
+# Optional overrides:
+#   LLM_MODEL                   Default: llama3.2:3b  (fits GitHub Actions RAM)
+# ──────────────────────────────────────────────────────────────────────────────
+
+name: Daily Weather Alerts — 11 AM IST
+
+on:
+  schedule:
+    - cron: "30 5 * * *"    # 05:30 UTC = 11:00 AM IST every day
+
+  workflow_dispatch:         # Manual trigger from GitHub UI (Actions tab → Run workflow)
+    inputs:
+      dry_run:
+        description: "Dry run — preview alerts without sending (yes/no)"
+        required: false
+        default: "no"
+
+jobs:
+  send-alerts:
+    name: Run Alert Pipeline
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      # ── 1. Checkout code ────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Python setup ─────────────────────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      # ── 3. Install Ollama ────────────────────────────────────────────────
+      - name: Install Ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+
+      # ── 4. Cache Ollama model (saves ~2 min re-download per run) ────────
+      - name: Cache Ollama models
+        uses: actions/cache@v4
+        with:
+          path: ~/.ollama/models
+          key: ollama-llama3.2-3b-v1
+
+      # ── 5. Pull model if not cached ──────────────────────────────────────
+      - name: Pull llama3.2:3b (if not cached)
+        run: |
+          ollama serve &>/tmp/ollama.log &
+          sleep 5
+          ollama pull llama3.2:3b
+          echo "Model ready."
+
+      # ── 6. Build .env from GitHub Secrets ───────────────────────────────
+      - name: Create .env from secrets
+        run: |
+          cat > .env <<EOF
+          LLM_BASE_URL=http://localhost:11434/v1
+          LLM_API_KEY=ollama
+          LLM_MODEL=${{ vars.LLM_MODEL || 'llama3.2:3b' }}
+
+          TWILIO_ACCOUNT_SID=${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN=${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_MESSAGING_SERVICE_SID=${{ secrets.TWILIO_MESSAGING_SERVICE_SID }}
+          TWILIO_WHATSAPP_FROM=${{ secrets.TWILIO_WHATSAPP_FROM }}
+          TWILIO_SMS_FROM=${{ secrets.TWILIO_SMS_FROM }}
+
+          DATA_GOV_IN_API_KEY=${{ secrets.DATA_GOV_IN_API_KEY }}
+
+          DATABASE_URL=sqlite:///data/farmers.db
+          LOG_LEVEL=INFO
+          EOF
+
+      # ── 7. Seed farmer database from JSON ───────────────────────────────
+      # The DB is ephemeral (fresh runner each run). We recreate it from the
+      # committed farmers JSON on every run.
+      - name: Seed farmer database
+        run: python scripts/bulk_add_farmers.py --file farmers_sample.json
+
+      # ── 8. Wait for Ollama to be ready ───────────────────────────────────
+      - name: Wait for Ollama API to be ready
+        run: |
+          for i in $(seq 1 20); do
+            if curl -sf http://localhost:11434/api/tags > /dev/null; then
+              echo "Ollama is ready."
+              break
+            fi
+            echo "Waiting for Ollama... ($i/20)"
+            sleep 3
+          done
+
+      # ── 9. Run the pipeline ──────────────────────────────────────────────
+      - name: Run alert pipeline
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "yes" ]; then
+            echo "Running in DRY-RUN mode (no messages sent)"
+            python main.py --now --dry-run
+          else
+            python main.py --now
+          fi
+
+      # ── 10. Upload logs as artifact (useful for debugging) ───────────────
+      - name: Upload run logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: alert-logs-${{ github.run_id }}
+          path: logs/
+          retention-days: 7
