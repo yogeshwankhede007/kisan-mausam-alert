@@ -1,152 +1,700 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1100" width="960" height="1100" font-family="Segoe UI,Arial,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1390" width="1100" height="1390" font-family="'Segoe UI',system-ui,-apple-system,Arial,sans-serif">
 <defs>
-  <filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.09"/></filter>
-  <marker id="ar"  markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#94a3b8"/></marker>
-  <marker id="ag"  markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16a34a"/></marker>
-  <marker id="arc" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#dc2626"/></marker>
-  <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%"   stop-color="#0f2460"/>
-    <stop offset="100%" stop-color="#5b21b6"/>
-  </linearGradient>
-  <linearGradient id="aibg" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%"   stop-color="#faf5ff"/>
-    <stop offset="100%" stop-color="#ede9fe"/>
-  </linearGradient>
-  <linearGradient id="fbg" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%"   stop-color="#1e3a8a"/>
-    <stop offset="100%" stop-color="#2563eb"/>
-  </linearGradient>
+<filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="7" flood-color="#000" flood-opacity="0.55"/></filter>
+<filter id="sh-glow" x="-8%" y="-8%" width="116%" height="116%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#7c3aed" flood-opacity="0.45"/></filter>
+<filter id="sh-green" x="-8%" y="-8%" width="116%" height="116%"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#16a34a" flood-opacity="0.3"/></filter>
+<marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#4b5563"/></marker>
+<marker id="ar-g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#22c55e"/></marker>
+<marker id="ar-r" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#ef4444"/></marker>
+<marker id="ar-b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#60a5fa"/></marker>
+<marker id="ar-c" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#06b6d4"/></marker>
+<linearGradient id="bg-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#080e1c"/><stop offset="100%" stop-color="#0b1526"/></linearGradient>
+<linearGradient id="hdr-g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1a0e45"/><stop offset="45%" stop-color="#26104e"/><stop offset="100%" stop-color="#0f2d6e"/></linearGradient>
+<linearGradient id="ai-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#130c28"/><stop offset="100%" stop-color="#0e0e26"/></linearGradient>
+<linearGradient id="farm-g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#052e16"/><stop offset="100%" stop-color="#14532d"/></linearGradient>
+<linearGradient id="pipe-g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#083344"/><stop offset="100%" stop-color="#0c4a6e"/></linearGradient>
 </defs>
-
-<!-- Page background -->
-<rect width="960" height="1100" fill="#f1f5f9"/>
-
-<!-- HEADER -->
-<rect width="960" height="90" fill="url(#hdr)"/>
-<circle cx="856" cy="24" r="3" fill="rgba(255,255,255,0.10)"/>
-<circle cx="880" cy="24" r="3" fill="rgba(255,255,255,0.10)"/>
-<circle cx="904" cy="24" r="3" fill="rgba(255,255,255,0.10)"/>
-<circle cx="856" cy="48" r="3" fill="rgba(255,255,255,0.10)"/>
-<circle cx="880" cy="48" r="3" fill="rgba(255,255,255,0.10)"/>
-<circle cx="904" cy="48" r="3" fill="rgba(255,255,255,0.10)"/>
-<circle cx="856" cy="72" r="3" fill="rgba(255,255,255,0.10)"/>
-<circle cx="880" cy="72" r="3" fill="rgba(255,255,255,0.10)"/>
-<circle cx="904" cy="72" r="3" fill="rgba(255,255,255,0.10)"/>
-<text x="480" y="42" text-anchor="middle" fill="white"   font-size="21"   font-weight="800">&#127806;  Kisan Mausam Alert &#8212; How It Works</text>
-<text x="480" y="68" text-anchor="middle" fill="#c4b5fd" font-size="12.5">Fully automated pipeline &#183; No human trigger &#183; Monitors every day &#183; Alerts only when there is real risk</text>
-
-<!-- ══ STEP 1: Automated Monitor ══ -->
-<rect x="60" y="106" width="840" height="80" rx="14" fill="white" filter="url(#sh)"/>
-<rect x="60" y="106" width="5"   height="80" rx="2.5" fill="#2563eb"/>
-<circle cx="104" cy="146" r="19" fill="#2563eb"/>
-<text x="104" y="151" text-anchor="middle" fill="white" font-size="13" font-weight="800">1</text>
-<text x="138" y="132" fill="#1e293b" font-size="14" font-weight="700">&#9201;  Automated Pipeline &#8212; Watches Weather Every Day, Every District</text>
-<text x="138" y="154" fill="#64748b" font-size="12">No human trigger needed. Runs silently on a schedule. Checks forecasts against risk thresholds.</text>
-<text x="138" y="174" fill="#64748b" font-size="12">If something is coming &#8212; it acts. If the week is safe &#8212; nobody gets disturbed.</text>
-<line x1="480" y1="186" x2="480" y2="214" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
-
-<!-- ══ STEP 2 label ══ -->
-<rect x="318" y="220" width="324" height="20" rx="10" fill="#e2e8f0"/>
-<text x="480" y="234" text-anchor="middle" fill="#64748b" font-size="10.5" font-weight="700">STEP 2  &#183;  COLLECT LIVE GOVERNMENT DATA</text>
-
-<!-- Data card: IMD -->
-<rect x="60"  y="250" width="258" height="104" rx="12" fill="white" filter="url(#sh)"/>
-<rect x="60"  y="250" width="258" height="4"   rx="2"  fill="#0891b2"/>
-<text x="189" y="292" text-anchor="middle" fill="#0e7490" font-size="13" font-weight="700">&#128225;  IMD Official Warnings</text>
-<text x="189" y="312" text-anchor="middle" fill="#64748b" font-size="11">Govt of India live feed</text>
-<text x="189" y="330" text-anchor="middle" fill="#94a3b8" font-size="10.5">Heatwave &#183; Flood &#183; Cyclone</text>
-<text x="189" y="346" text-anchor="middle" fill="#94a3b8" font-size="10">mausam.imd.gov.in</text>
-
-<!-- Data card: Forecast -->
-<rect x="351" y="250" width="258" height="104" rx="12" fill="white" filter="url(#sh)"/>
-<rect x="351" y="250" width="258" height="4"   rx="2"  fill="#0891b2"/>
-<text x="480" y="292" text-anchor="middle" fill="#0e7490" font-size="13" font-weight="700">&#127780;  7-Day Weather Forecast</text>
-<text x="480" y="312" text-anchor="middle" fill="#64748b" font-size="11">Temp &#183; Rain &#183; Wind &#183; UV Index</text>
-<text x="480" y="330" text-anchor="middle" fill="#94a3b8" font-size="10.5">Open-Meteo (free, real-time)</text>
-<text x="480" y="346" text-anchor="middle" fill="#94a3b8" font-size="10">Per district, updated daily</text>
-
-<!-- Data card: Crops -->
-<rect x="642" y="250" width="258" height="104" rx="12" fill="white" filter="url(#sh)"/>
-<rect x="642" y="250" width="258" height="4"   rx="2"  fill="#0891b2"/>
-<text x="771" y="292" text-anchor="middle" fill="#0e7490" font-size="13" font-weight="700">&#127806;  District Crop Calendar</text>
-<text x="771" y="312" text-anchor="middle" fill="#64748b" font-size="11">data.gov.in Agriculture API</text>
-<text x="771" y="330" text-anchor="middle" fill="#94a3b8" font-size="10.5">Rabi &#183; Kharif &#183; Zaid season</text>
-<text x="771" y="346" text-anchor="middle" fill="#94a3b8" font-size="10">Auto crop detection per district</text>
-
-<!-- Converging arrows -->
-<line x1="189" y1="354" x2="189" y2="380" stroke="#94a3b8" stroke-width="1.5"/>
-<line x1="480" y1="354" x2="480" y2="380" stroke="#94a3b8" stroke-width="1.5"/>
-<line x1="771" y1="354" x2="771" y2="380" stroke="#94a3b8" stroke-width="1.5"/>
-<line x1="189" y1="380" x2="771" y2="380" stroke="#94a3b8" stroke-width="1.5"/>
-<line x1="480" y1="380" x2="480" y2="406" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
-
-<!-- ══ STEP 3: AI Engine ══ -->
-<rect x="60" y="412" width="840" height="138" rx="14" fill="url(#aibg)" filter="url(#sh)" stroke="#7c3aed" stroke-width="1.5"/>
-<rect x="60" y="412" width="5"   height="138" rx="2.5" fill="#7c3aed"/>
-<circle cx="104" cy="481" r="19" fill="#7c3aed"/>
-<text x="104" y="486" text-anchor="middle" fill="white" font-size="13" font-weight="800">3</text>
-<text x="138" y="438" fill="#3b0764" font-size="14" font-weight="700">&#129302;  AI Engine &#8212; Reads All Data, Thinks Like an Agricultural Expert</text>
-<circle cx="148" cy="460" r="3.5" fill="#7c3aed"/><text x="162" y="465" fill="#4c1d95" font-size="12">Spots risks: heatwave, heavy rain, cold wave, thunderstorm, high winds</text>
-<circle cx="148" cy="484" r="3.5" fill="#7c3aed"/><text x="162" y="489" fill="#4c1d95" font-size="12">Knows which crops are in the ground this season &#8212; advice is specific, not generic</text>
-<circle cx="148" cy="508" r="3.5" fill="#7c3aed"/><text x="162" y="513" fill="#4c1d95" font-size="12">Writes practical advice: irrigate at dawn, shelter cattle, delay harvest, hold pesticide spraying</text>
-<circle cx="148" cy="532" r="3.5" fill="#7c3aed"/><text x="162" y="537" fill="#4c1d95" font-size="12">Translates into the farmer&#8217;s own language &#8212; native script, plain words, zero jargon</text>
-<line x1="480" y1="550" x2="480" y2="578" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
-
-<!-- ══ STEP 4: Decision Diamond ══ -->
-<text x="480" y="596" text-anchor="middle" fill="#92400e" font-size="10.5" font-weight="700">STEP 4  &#183;  SMART DECISION</text>
-<polygon points="480,610  622,660  480,710  338,660" fill="#fffbeb" stroke="#d97706" stroke-width="2.5" filter="url(#sh)"/>
-<text x="480" y="652" text-anchor="middle" fill="#92400e" font-size="13" font-weight="800">Is there a real risk</text>
-<text x="480" y="672" text-anchor="middle" fill="#92400e" font-size="13" font-weight="800">worth acting on?</text>
-
-<!-- YES &#8594; down -->
-<line x1="480" y1="710" x2="480" y2="748" stroke="#16a34a" stroke-width="2.5" marker-end="url(#ag)"/>
-<rect x="432" y="714" width="44" height="22" rx="11" fill="#dcfce7"/>
-<text x="454" y="729" text-anchor="middle" fill="#15803d" font-size="11" font-weight="700">YES</text>
-
-<!-- NO &#8594; right -->
-<line x1="622" y1="660" x2="806" y2="660" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arc)"/>
-<rect x="634" y="646" width="38" height="22" rx="11" fill="#fee2e2"/>
-<text x="653" y="661" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="700">NO</text>
-<rect x="806" y="630" width="140" height="62" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh)"/>
-<text x="876" y="654" text-anchor="middle" fill="#dc2626"  font-size="13" font-weight="700">No Alert Sent</text>
-<text x="876" y="672" text-anchor="middle" fill="#991b1b" font-size="11">Farmer not disturbed</text>
-<text x="876" y="688" text-anchor="middle" fill="#94a3b8"  font-size="10.5">Quiet = good news</text>
-
-<!-- ══ STEP 5 label ══ -->
-<rect x="318" y="754" width="324" height="20" rx="10" fill="#e2e8f0"/>
-<text x="480" y="768" text-anchor="middle" fill="#64748b" font-size="10.5" font-weight="700">STEP 5  &#183;  DELIVER TO FARMER&#8217;S PHONE</text>
-
-<!-- Delivery: WhatsApp -->
-<rect x="60"  y="782" width="400" height="88" rx="12" fill="white" filter="url(#sh)"/>
-<rect x="60"  y="782" width="400" height="4"  rx="2"  fill="#16a34a"/>
-<text x="260" y="820" text-anchor="middle" fill="#14532d" font-size="15" font-weight="700">&#128172;  WhatsApp</text>
-<text x="260" y="842" text-anchor="middle" fill="#64748b" font-size="12">All Indian scripts supported</text>
-<text x="260" y="860" text-anchor="middle" fill="#94a3b8" font-size="11">Works on any basic Android phone</text>
-
-<!-- Delivery: SMS -->
-<rect x="500" y="782" width="400" height="88" rx="12" fill="white" filter="url(#sh)"/>
-<rect x="500" y="782" width="400" height="4"  rx="2"  fill="#0891b2"/>
-<text x="700" y="820" text-anchor="middle" fill="#164e63" font-size="15" font-weight="700">&#128241;  SMS</text>
-<text x="700" y="842" text-anchor="middle" fill="#64748b" font-size="12">No internet needed</text>
-<text x="700" y="860" text-anchor="middle" fill="#94a3b8" font-size="11">Reaches any mobile on any network</text>
-
-<line x1="480" y1="870" x2="480" y2="900" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
-
-<!-- ══ STEP 6: Farmer ══ -->
-<rect x="60" y="906" width="840" height="82" rx="14" fill="url(#fbg)" filter="url(#sh)"/>
-<circle cx="112" cy="947" r="36" fill="rgba(255,255,255,0.06)"/>
-<circle cx="848" cy="947" r="36" fill="rgba(255,255,255,0.06)"/>
-<text x="480" y="932" text-anchor="middle" fill="white"   font-size="15" font-weight="800">&#128104;&#8205;&#127806;  Farmer receives the alert. Farmer acts. Before the weather arrives.</text>
-<text x="480" y="954" text-anchor="middle" fill="#bfdbfe" font-size="12">Right district &#183; Right crop &#183; Right language &#183; Right time &#8212; no app to install, no English needed</text>
-<text x="480" y="974" text-anchor="middle" fill="#93c5fd" font-size="11">Only alerted when it matters. Silence means the week ahead is safe.</text>
-
-<!-- Language bar -->
-<rect x="60" y="1004" width="840" height="30" rx="15" fill="white" filter="url(#sh)"/>
-<text x="148" y="1023" fill="#7c3aed" font-size="11.5" font-weight="700">&#128483;  11 languages:</text>
-<text x="252" y="1023" fill="#475569" font-size="11">Hindi &#183; Marathi &#183; Telugu &#183; Kannada &#183; Punjabi &#183; Gujarati &#183; Bengali &#183; Odia &#183; Tamil &#183; Malayalam &#183; English</text>
-
-<!-- Footer -->
-<text x="480" y="1058" text-anchor="middle" fill="#94a3b8" font-size="10.5">Powered by: IMD CAP RSS &#183; Open-Meteo &#183; data.gov.in &#183; Ollama AI &#183; Twilio WhatsApp / SMS</text>
-<text x="480" y="1080" text-anchor="middle" fill="#cbd5e1" font-size="10">Kisan Mausam Alert &#8212; Built for Indian farmers</text>
-
+<rect width="1100" height="1390" fill="url(#bg-g)"/>
+<circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="30" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="85" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="140" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="195" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="250" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="305" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="360" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="415" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="470" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="525" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="580" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="635" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="690" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="745" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="800" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="855" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="910" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="965" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1020" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="30" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="85" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="140" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="195" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="250" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="305" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="360" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="415" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="470" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="525" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="580" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="635" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="690" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="745" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="800" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="855" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="910" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="965" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="1020" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="1075" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="1130" r="1" fill="rgba(255,255,255,0.025)"/>
+<circle cx="1075" cy="1185" r="1" fill="rgba(255,255,255,0.025)"/>
+<rect x="0" y="0" width="1100" height="80" fill="url(#hdr-g)"/>
+<circle cx="780" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="780" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="780" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="802" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="802" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="802" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="824" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="824" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="824" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="846" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="846" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="846" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="868" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="868" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="868" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="890" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="890" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="890" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="912" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="912" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="912" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="934" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="934" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="934" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="956" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="956" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="956" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="978" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="978" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="978" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1000" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1000" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1000" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1022" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1022" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1022" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1044" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1044" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1044" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1066" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1066" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1066" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1088" cy="8" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1088" cy="30" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<circle cx="1088" cy="52" r="2.5" fill="rgba(255,255,255,0.06)"/>
+<rect x="20" y="26" width="58" height="26" rx="13" fill="rgba(139,92,246,0.45)" stroke="#a78bfa" stroke-width="1.2"/>
+<text x="49" y="44" text-anchor="middle" fill="white" font-size="11" font-weight="700">v 2.0</text>
+<text x="550" y="36" text-anchor="middle" fill="white" font-size="22" font-weight="800">&#127806;  Kisan Mausam Alert &#8212; AI Pipeline</text>
+<text x="550" y="62" text-anchor="middle" fill="#a5b4fc" font-size="12" font-weight="normal">Automated &#183; Intelligent &#183; Multilingual &#183; 80+ districts &#183; 11 languages</text>
+<line x1="550" y1="80" x2="550" y2="100" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="295" y="96" width="510" height="20" rx="10" fill="#0c1425" stroke="#3b82f6" stroke-width="0.8"/>
+<text x="550" y="110" text-anchor="middle" fill="#3b82f6" font-size="9.5" font-weight="700" letter-spacing="0.8">STEP 1  &#183;  AUTOMATED SCHEDULE TRIGGER</text>
+<rect x="44" y="118" width="1012" height="74" rx="14" fill="#0b1730" stroke="#1d4ed8" stroke-width="1.8" filter="url(#sh)"/>
+<rect x="44" y="118" width="6" height="74" rx="3" fill="#3b82f6"/>
+<circle cx="82" cy="155" r="16" fill="#1d4ed8"/>
+<text x="82" y="160" text-anchor="middle" fill="white" font-size="11" font-weight="800">1</text>
+<text x="114" y="141" text-anchor="start" fill="white" font-size="13.5" font-weight="700">&#9201;  GitHub Actions &#8212; Runs at 11:00 AM IST Every Day (05:30 UTC)</text>
+<text x="114" y="161" text-anchor="start" fill="#60a5fa" font-size="11.5" font-weight="normal">No human trigger needed  &#183;  Silent when the week is safe  &#183;  Instant dry-run preview with --dry-run</text>
+<text x="114" y="178" text-anchor="start" fill="#334155" font-size="10.5" font-weight="normal">test-pipeline.yml runs a full dry-run on every push / PR to catch regressions</text>
+<line x1="550" y1="192" x2="550" y2="210" stroke="#1e3a8a" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="305" y="206" width="490" height="20" rx="10" fill="#0c1425" stroke="#06b6d4" stroke-width="0.8"/>
+<text x="550" y="220" text-anchor="middle" fill="#06b6d4" font-size="9.5" font-weight="700" letter-spacing="0.8">STEP 2  &#183;  LIVE GOVERNMENT &amp; OPEN DATA INGESTION</text>
+<rect x="44" y="228" width="318" height="108" rx="12" fill="#071422" stroke="#0e7490" stroke-width="1.8" filter="url(#sh)"/>
+<rect x="44" y="228" width="318" height="4" rx="2" fill="#06b6d4"/>
+<text x="203" y="260" text-anchor="middle" fill="#22d3ee" font-size="13" font-weight="700">&#128225;  IMD Official Warnings</text>
+<text x="203" y="280" text-anchor="middle" fill="#94a3b8" font-size="11.5" font-weight="normal">Government of India live feed</text>
+<text x="203" y="298" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">Heatwave &#183; Flood &#183; Cyclone &#183; Thunderstorm</text>
+<text x="203" y="316" text-anchor="middle" fill="#334155" font-size="10" font-weight="normal">mausam.imd.gov.in  &#183;  IMD CAP RSS</text>
+<rect x="400" y="228" width="318" height="108" rx="12" fill="#071422" stroke="#0e7490" stroke-width="1.8" filter="url(#sh)"/>
+<rect x="400" y="228" width="318" height="4" rx="2" fill="#06b6d4"/>
+<text x="559" y="260" text-anchor="middle" fill="#22d3ee" font-size="13" font-weight="700">&#127780;  7-Day Weather Forecast</text>
+<text x="559" y="280" text-anchor="middle" fill="#94a3b8" font-size="11.5" font-weight="normal">Open-Meteo (free, real-time)</text>
+<text x="559" y="298" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">Temp &#183; Rain &#183; Wind &#183; UV Index</text>
+<text x="559" y="316" text-anchor="middle" fill="#334155" font-size="10" font-weight="normal">open-meteo.com  &#183;  updated every hour</text>
+<rect x="756" y="228" width="318" height="108" rx="12" fill="#071422" stroke="#0e7490" stroke-width="1.8" filter="url(#sh)"/>
+<rect x="756" y="228" width="318" height="4" rx="2" fill="#06b6d4"/>
+<text x="915" y="260" text-anchor="middle" fill="#22d3ee" font-size="13" font-weight="700">&#127806;  District Crop Calendar</text>
+<text x="915" y="280" text-anchor="middle" fill="#94a3b8" font-size="11.5" font-weight="normal">data.gov.in Agriculture API</text>
+<text x="915" y="298" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">Rabi &#183; Kharif &#183; Zaid seasons</text>
+<text x="915" y="316" text-anchor="middle" fill="#334155" font-size="10" font-weight="normal">Auto crop detection  &#183;  80+ districts</text>
+<line x1="203" y1="336" x2="203" y2="364" stroke="#1e3a8a" stroke-width="1.8"/>
+<line x1="550" y1="336" x2="550" y2="364" stroke="#1e3a8a" stroke-width="1.8"/>
+<line x1="915" y1="336" x2="915" y2="364" stroke="#1e3a8a" stroke-width="1.8"/>
+<line x1="203" y1="364" x2="915" y2="364" stroke="#1e3a8a" stroke-width="1.8"/>
+<line x1="550" y1="364" x2="550" y2="388" stroke="#1e3a8a" stroke-width="2" marker-end="url(#ar-b)"/>
+<rect x="305" y="390" width="490" height="20" rx="10" fill="#0c1425" stroke="#0891b2" stroke-width="0.8"/>
+<text x="550" y="404" text-anchor="middle" fill="#0891b2" font-size="9.5" font-weight="700" letter-spacing="0.8">STEP 3  &#183;  ALERT PIPELINE ORCHESTRATION  (alert_pipeline.py)</text>
+<rect x="44" y="412" width="1012" height="68" rx="14" fill="url(#pipe-g)" stroke="#0891b2" stroke-width="1.8" filter="url(#sh)"/>
+<rect x="44" y="412" width="6" height="68" rx="3" fill="#06b6d4"/>
+<circle cx="82" cy="446" r="16" fill="#0e7490"/>
+<text x="82" y="451" text-anchor="middle" fill="white" font-size="11" font-weight="800">2</text>
+<text x="114" y="434" text-anchor="start" fill="white" font-size="13" font-weight="700">Per district: fetch forecast once  &#8594;  group farmers by language  &#8594;  one AI call per language group</text>
+<text x="114" y="454" text-anchor="start" fill="#67e8f9" font-size="11.5" font-weight="normal">Season context &#183;  Crop auto-detection &#183;  CAP alerts merged &#183;  Personalised per farmer  &#183;  Offline fallback</text>
+<text x="114" y="472" text-anchor="start" fill="#334155" font-size="10.5" font-weight="normal">300 ms gap between Twilio calls  &#183;  Retry with exponential backoff  &#183;  All results logged to SQLite</text>
+<line x1="550" y1="480" x2="550" y2="504" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="290" y="506" width="520" height="20" rx="10" fill="#0c1425" stroke="#8b5cf6" stroke-width="0.8"/>
+<text x="550" y="520" text-anchor="middle" fill="#8b5cf6" font-size="9.5" font-weight="700" letter-spacing="0.8">STEP 4  &#183;  AI ENGINE  &#8212;  weather_analyzer.py</text>
+<rect x="44" y="528" width="1012" height="290" rx="16" fill="url(#ai-g)" stroke="#7c3aed" stroke-width="1.8" filter="url(#sh-glow)"/>
+<rect x="44" y="528" width="6" height="290" rx="3" fill="#7c3aed"/>
+<circle cx="930" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="930" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="930" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="930" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="930" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="942" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="942" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="942" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="942" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="942" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="954" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="954" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="954" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="954" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="954" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="966" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="966" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="966" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="966" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="966" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="978" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="978" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="978" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="978" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="978" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="990" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="990" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="990" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="990" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="990" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1002" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1002" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1002" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1002" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1002" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1014" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1014" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1014" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1014" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1014" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1026" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1026" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1026" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1026" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1026" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1038" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1038" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1038" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1038" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1038" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1050" cy="534" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1050" cy="546" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1050" cy="558" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1050" cy="570" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="1050" cy="582" r="2" fill="rgba(139,92,246,0.18)"/>
+<circle cx="82" cy="548" r="16" fill="#7c3aed"/>
+<text x="82" y="553" text-anchor="middle" fill="white" font-size="11" font-weight="800">3</text>
+<text x="112" y="544" text-anchor="start" fill="#e9d5ff" font-size="13.5" font-weight="700">&#129302;  Ollama (local / GitHub Actions)  &#183;  Gemini free tier  &#183;  Any OpenAI-compatible endpoint</text>
+<text x="112" y="562" text-anchor="start" fill="#6d28d9" font-size="11" font-weight="normal">Model: llama3.2:3b in CI  &#183;  qwen2.5:7b locally (better multilingual)  &#183;  response_format=json</text>
+<rect x="62" y="576" width="462" height="134" rx="10" fill="rgba(139,92,246,0.10)" stroke="rgba(139,92,246,0.38)" stroke-width="1.5"/>
+<text x="82" y="596" text-anchor="start" fill="#c4b5fd" font-size="12.5" font-weight="700">analyse_and_generate_alert()</text>
+<text x="82" y="616" text-anchor="start" fill="#94a3b8" font-size="11.5" font-weight="normal">&#9679;  Reads 7-day forecast + IMD CAP + crop list</text>
+<text x="82" y="634" text-anchor="start" fill="#94a3b8" font-size="11.5" font-weight="normal">&#9679;  Identifies risks: heatwave, rain, cold, wind</text>
+<text x="82" y="652" text-anchor="start" fill="#94a3b8" font-size="11.5" font-weight="normal">&#9679;  Writes practical SMS in farmer&#8217;s language</text>
+<rect x="82" y="664" width="88" height="22" rx="11" fill="rgba(139,92,246,0.35)"/>
+<text x="126" y="679" text-anchor="middle" fill="#e9d5ff" font-size="10.5" font-weight="700">&#8594; Risk JSON</text>
+<rect x="182" y="664" width="100" height="22" rx="11" fill="rgba(139,92,246,0.35)"/>
+<text x="232" y="679" text-anchor="middle" fill="#e9d5ff" font-size="10.5" font-weight="700">&#8594; Main Alert</text>
+<rect x="294" y="664" width="110" height="22" rx="11" fill="rgba(139,92,246,0.35)"/>
+<text x="349" y="679" text-anchor="middle" fill="#e9d5ff" font-size="10.5" font-weight="700">&#8594; Local Language</text>
+<rect x="542" y="576" width="506" height="134" rx="10" fill="rgba(34,197,94,0.07)" stroke="rgba(34,197,94,0.38)" stroke-width="1.5"/>
+<rect x="974" y="584" width="56" height="20" rx="10" fill="#166534"/>
+<text x="1002" y="598" text-anchor="middle" fill="white" font-size="10" font-weight="800">&#10024; NEW</text>
+<text x="562" y="596" text-anchor="start" fill="#86efac" font-size="12.5" font-weight="700">generate_advisory_addons()</text>
+<text x="562" y="616" text-anchor="start" fill="#94a3b8" font-size="11.5" font-weight="normal">&#9679;  One LLM call per language group (efficient)</text>
+<text x="562" y="634" text-anchor="start" fill="#94a3b8" font-size="11.5" font-weight="normal">&#9679;  Season-gated: runs only in relevant months</text>
+<text x="562" y="652" text-anchor="start" fill="#94a3b8" font-size="11.5" font-weight="normal">&#9679;  Livestock only when has_cattle = True</text>
+<rect x="562" y="664" width="128" height="22" rx="11" fill="rgba(34,197,94,0.3)"/>
+<text x="626" y="679" text-anchor="middle" fill="#86efac" font-size="10.5" font-weight="700">&#8594; Advisory Addons</text>
+<rect x="62" y="724" width="306" height="84" rx="10" fill="rgba(34,197,94,0.07)" stroke="rgba(34,197,94,0.42)" stroke-width="1.5"/>
+<text x="80" y="744" text-anchor="start" fill="#4ade80" font-size="12" font-weight="700">&#127807;  Planting &amp; Sowing Advisory</text>
+<text x="80" y="762" text-anchor="start" fill="#64748b" font-size="11" font-weight="normal">Optimal sowing window per crop + variety</text>
+<text x="80" y="779" text-anchor="start" fill="#334155" font-size="10.5" font-weight="normal">kharif: May&#8211;Jul  &#183;  rabi: Oct&#8211;Nov  &#183;  zaid: Feb&#8211;Apr</text>
+<text x="80" y="796" text-anchor="start" fill="#166534" font-size="10" font-weight="normal">&#8220;Sow cotton 12&#8211;18 Jun &#8212; monsoon onset 10 Jun&#8221;</text>
+<rect x="388" y="724" width="306" height="84" rx="10" fill="rgba(234,179,8,0.07)" stroke="rgba(234,179,8,0.42)" stroke-width="1.5"/>
+<text x="408" y="744" text-anchor="start" fill="#fde047" font-size="12" font-weight="700">&#127806;  Harvest Timing Recommendations</text>
+<text x="408" y="762" text-anchor="start" fill="#64748b" font-size="11" font-weight="normal">Safest harvest window before rain/wind</text>
+<text x="408" y="779" text-anchor="start" fill="#334155" font-size="10.5" font-weight="normal">kharif: Sep&#8211;Nov  &#183;  rabi: Mar&#8211;May  &#183;  zaid: May&#8211;Jun</text>
+<text x="408" y="796" text-anchor="start" fill="#854d0e" font-size="10" font-weight="normal">&#8220;Harvest onion by Thu &#8212; heavy rain Friday&#8221;</text>
+<rect x="714" y="724" width="316" height="84" rx="10" fill="rgba(249,115,22,0.07)" stroke="rgba(249,115,22,0.42)" stroke-width="1.5"/>
+<text x="732" y="744" text-anchor="start" fill="#fb923c" font-size="12" font-weight="700">&#128004;  Livestock Protection Alerts</text>
+<text x="732" y="762" text-anchor="start" fill="#64748b" font-size="11" font-weight="normal">Cattle  &#183;  Poultry  &#183;  Goat safety</text>
+<text x="732" y="779" text-anchor="start" fill="#334155" font-size="10.5" font-weight="normal">Active when has_cattle = True (per farmer flag)</text>
+<text x="732" y="796" text-anchor="start" fill="#7c2d12" font-size="10" font-weight="normal">&#8220;Shade + water &#8212; monitor heat stress signs&#8221;</text>
+<line x1="550" y1="818" x2="550" y2="842" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="320" y="844" width="460" height="20" rx="10" fill="#0c1425" stroke="#f59e0b" stroke-width="0.8"/>
+<text x="550" y="858" text-anchor="middle" fill="#f59e0b" font-size="9.5" font-weight="700" letter-spacing="0.8">STEP 5  &#183;  SMART RISK GATE</text>
+<polygon points="550,872 698,926 550,980 402,926" fill="#110900" stroke="#d97706" stroke-width="2.5" filter="url(#sh)"/>
+<text x="550" y="916" text-anchor="middle" fill="#fbbf24" font-size="13.5" font-weight="800">Real risk</text>
+<text x="550" y="938" text-anchor="middle" fill="#fbbf24" font-size="13.5" font-weight="800">detected?</text>
+<line x1="550" y1="980" x2="550" y2="1014" stroke="#22c55e" stroke-width="2.5" marker-end="url(#ar-g)"/>
+<rect x="524" y="984" width="52" height="22" rx="11" fill="#052e16"/>
+<text x="550" y="999" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">YES</text>
+<line x1="698" y1="926" x2="770" y2="926" stroke="#ef4444" stroke-width="2.5" marker-end="url(#ar-r)"/>
+<rect x="708" y="913" width="40" height="20" rx="10" fill="#2d0707"/>
+<text x="728" y="928" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">NO</text>
+<rect x="773" y="886" width="270" height="80" rx="12" fill="#0f172a" stroke="#991b1b" stroke-width="1.8" filter="url(#sh)"/>
+<text x="908" y="908" text-anchor="middle" fill="#f87171" font-size="13.5" font-weight="700">No Alert Sent</text>
+<text x="908" y="930" text-anchor="middle" fill="#7f1d1d" font-size="11.5" font-weight="normal">Farmer not disturbed</text>
+<text x="908" y="950" text-anchor="middle" fill="#475569" font-size="11" font-weight="normal">Silence = safe week ahead</text>
+<rect x="295" y="1038" width="510" height="20" rx="10" fill="#0c1425" stroke="#22c55e" stroke-width="0.8"/>
+<text x="550" y="1052" text-anchor="middle" fill="#22c55e" font-size="9.5" font-weight="700" letter-spacing="0.8">STEP 6  &#183;  MESSAGE COMPOSITION &amp; DELIVERY</text>
+<rect x="44" y="1060" width="494" height="112" rx="12" fill="#040d0a" stroke="#16a34a" stroke-width="1.8" filter="url(#sh)"/>
+<rect x="44" y="1060" width="494" height="5" rx="2.5" fill="#22c55e"/>
+<circle cx="90" cy="1116" r="28" fill="rgba(34,197,94,0.08)"/>
+<text x="291" y="1090" text-anchor="middle" fill="#22c55e" font-size="14" font-weight="700">&#128172;  WhatsApp &#8212; Full Composite Message</text>
+<text x="291" y="1112" text-anchor="middle" fill="#94a3b8" font-size="11.5" font-weight="normal">Main alert + Planting + Harvest + Livestock addons</text>
+<text x="291" y="1130" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">All 11 Indian scripts  &#183;  Any basic Android phone</text>
+<text x="291" y="1150" text-anchor="middle" fill="#334155" font-size="10.5" font-weight="normal">Twilio WhatsApp  &#183;  Meta Cloud API (1,000 free/month)</text>
+<rect x="430" y="1068" width="96" height="20" rx="10" fill="#166534"/>
+<text x="478" y="1082" text-anchor="middle" fill="white" font-size="10" font-weight="700">&#10024; Addons NEW</text>
+<rect x="562" y="1060" width="494" height="112" rx="12" fill="#040c14" stroke="#0891b2" stroke-width="1.8" filter="url(#sh)"/>
+<rect x="562" y="1060" width="494" height="5" rx="2.5" fill="#06b6d4"/>
+<text x="809" y="1090" text-anchor="middle" fill="#22d3ee" font-size="14" font-weight="700">&#128241;  SMS &#8212; Core Alert Only</text>
+<text x="809" y="1112" text-anchor="middle" fill="#94a3b8" font-size="11.5" font-weight="normal">320-char main alert  &#183;  No addons (char limit)</text>
+<text x="809" y="1130" text-anchor="middle" fill="#64748b" font-size="11" font-weight="normal">Works on any phone  &#183;  No internet needed</text>
+<text x="809" y="1150" text-anchor="middle" fill="#334155" font-size="10.5" font-weight="normal">Twilio SMS  &#183;  Fast2SMS (&#8377;0.07/SMS, Devanagari OK)</text>
+<line x1="550" y1="1172" x2="550" y2="1198" stroke="#22c55e" stroke-width="2" marker-end="url(#ar-g)"/>
+<rect x="44" y="1200" width="1012" height="86" rx="14" fill="url(#farm-g)" stroke="#22c55e" stroke-width="1.8" filter="url(#sh)"/>
+<filter id="sh-farm"/>
+<circle cx="100" cy="1243" r="34" fill="rgba(255,255,255,0.04)"/>
+<circle cx="1000" cy="1243" r="34" fill="rgba(255,255,255,0.04)"/>
+<circle cx="100" cy="1243" r="16" fill="#16a34a"/>
+<text x="100" y="1248" text-anchor="middle" fill="white" font-size="11" font-weight="800">4</text>
+<text x="550" y="1228" text-anchor="middle" fill="white" font-size="15" font-weight="800">&#128104;&#8205;&#127806;  Farmer receives the alert. Reads it. Acts. Before the weather arrives.</text>
+<text x="550" y="1252" text-anchor="middle" fill="#86efac" font-size="12" font-weight="normal">Right district  &#183;  Right crop  &#183;  Right language  &#183;  Right time  &#8212;  no app, no English needed</text>
+<text x="550" y="1272" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="normal">Only alerted when it matters  &#183;  Silence = the week ahead is safe</text>
+<rect x="44" y="1296" width="1012" height="32" rx="16" fill="#0b1525" stroke="#1e293b" stroke-width="1.8" filter="url(#sh)"/>
+<text x="164" y="1316" text-anchor="start" fill="#8b5cf6" font-size="12" font-weight="700">&#128483;  11 languages:</text>
+<text x="280" y="1316" text-anchor="start" fill="#64748b" font-size="11.5" font-weight="normal">Hindi  &#183;  Marathi  &#183;  Telugu  &#183;  Kannada  &#183;  Punjabi  &#183;  Gujarati  &#183;  Bengali  &#183;  Odia  &#183;  Tamil  &#183;  Malayalam  &#183;  English</text>
+<text x="550" y="1340" text-anchor="middle" fill="#475569" font-size="10.5" font-weight="normal">Powered by: IMD CAP RSS  &#183;  Open-Meteo  &#183;  data.gov.in  &#183;  Ollama AI  &#183;  Twilio / Meta Cloud API / Fast2SMS</text>
+<text x="550" y="1358" text-anchor="middle" fill="#334155" font-size="10" font-weight="normal">Kisan Mausam Alert v2.0  &#8212;  Built for India&#8217;s 140 million farming families</text>
 </svg>

@@ -199,3 +199,116 @@ def _extract_json(text: str) -> str:
     if start != -1 and end != -1:
         return text[start : end + 1]
     return text
+
+
+# ── Roadmap advisory addons ──────────────────────────────────────────────────
+# Month sets that gate which advisories are generated
+_SOWING_MONTHS: Dict[str, set] = {
+    "kharif": {5, 6, 7},    # May–Jul  (pre-monsoon sowing)
+    "rabi":   {10, 11},     # Oct–Nov  (winter-crop sowing)
+    "zaid":   {2, 3, 4},    # Feb–Apr  (short-duration crops)
+}
+_HARVEST_MONTHS: Dict[str, set] = {
+    "kharif": {9, 10, 11},  # Sep–Nov
+    "rabi":   {3, 4, 5},    # Mar–May
+    "zaid":   {5, 6},       # May–Jun
+}
+
+_ADDONS_SYSTEM_PROMPT = """
+You are an expert agricultural advisor for Indian farmers working with the India Meteorological Department.
+Generate concise, targeted advisory supplements based on weather forecast data.
+Keep each advisory to 2–3 sentences maximum. Use simple, direct language suitable for farmers.
+Return null (JSON null, not a string) for any advisory type that is not relevant to the current context.
+"""
+
+
+@retry(stop=stop_after_attempt(2), wait=wait_exponential(multiplier=1, min=2, max=10))
+def generate_advisory_addons(
+    district: str,
+    state: str,
+    forecast: Dict[str, Any],
+    language: str,
+    crop_types: List[str],
+    has_cattle: bool,
+    season: str,
+    season_context: str = "",
+) -> Dict[str, Optional[str]]:
+    """
+    Generate planting, harvest, and livestock advisory addons in one LLM call.
+
+    Returns dict with keys:
+      planting_advisory  – optimal sowing window recommendation (or None)
+      harvest_advisory   – safest harvest timing recommendation (or None)
+      livestock_advisory – livestock/cattle protection advisory (or None)
+
+    Advisories are only requested when contextually relevant (season + cattle flag).
+    """
+    from datetime import date as _date
+
+    month = _date.today().month
+    needs_planting  = month in _SOWING_MONTHS.get(season, set())
+    needs_harvest   = month in _HARVEST_MONTHS.get(season, set())
+    needs_livestock = has_cattle
+
+    empty: Dict[str, Optional[str]] = {
+        "planting_advisory": None,
+        "harvest_advisory": None,
+        "livestock_advisory": None,
+    }
+    if not needs_planting and not needs_harvest and not needs_livestock:
+        return empty
+
+    days_text    = "\n".join(_day_summary(d) for d in forecast["days"])
+    crops_text   = ", ".join(crop_types) if crop_types else "mixed crops"
+    lang_display = _LANG_DISPLAY.get(language, language)
+
+    planting_slot = (
+        f'"<2-3 sentence optimal sowing window advice in {lang_display} based on forecast. null if not relevant>"'
+        if needs_planting else "null"
+    )
+    harvest_slot = (
+        f'"<2-3 sentence safest harvest window advice in {lang_display} based on rain/wind forecast. null if not relevant>"'
+        if needs_harvest else "null"
+    )
+    livestock_slot = (
+        f'"<2-3 sentence cattle/livestock protection advice in {lang_display} covering shelter, water, heat/cold stress. null if no significant risk>"'
+        if needs_livestock else "null"
+    )
+
+    user_prompt = f"""
+District: {district.title()}, {state}
+Crops: {crops_text}
+Season: {season_context or season}
+Language: {lang_display}
+
+7-Day Forecast:
+{days_text}
+
+Generate advisory addons. Respond ONLY with valid JSON:
+{{
+  "planting_advisory": {planting_slot},
+  "harvest_advisory": {harvest_slot},
+  "livestock_advisory": {livestock_slot}
+}}
+"""
+
+    response = _get_client().chat.completions.create(
+        model=LLM_MODEL,
+        messages=[
+            {"role": "system", "content": _ADDONS_SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ],
+        temperature=0.3,
+        response_format={"type": "json_object"},
+    )
+    raw      = response.choices[0].message.content or ""
+    json_text = _extract_json(raw)
+    result   = json.loads(json_text)
+    logger.info(
+        "Advisory addons for %s/%s – active: %s",
+        district, language,
+        [k for k, v in result.items() if v],
+    )
+    for key in ("planting_advisory", "harvest_advisory", "livestock_advisory"):
+        result.setdefault(key, None)
+    return result

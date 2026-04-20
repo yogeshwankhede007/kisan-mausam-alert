@@ -14,7 +14,7 @@ from src.crop_fetcher import get_current_season_info, get_district_crops
 from src.database import Farmer, get_active_districts, get_active_farmers, log_alert
 from src.imd_fetcher import fetch_imd_cap_alerts, fetch_openmeteo_forecast
 from src.notifier import dispatch_alert
-from src.weather_analyzer import analyse_and_generate_alert, translate_alert
+from src.weather_analyzer import analyse_and_generate_alert, generate_advisory_addons, translate_alert
 
 logger = logging.getLogger(__name__)
 
@@ -126,6 +126,27 @@ def run_daily_alerts(dry_run: bool = False) -> Dict[str, Any]:
             if not alert_message:
                 continue
 
+            # ── Advisory addons: planting, harvest, livestock ─────────
+            addon_parts: list = []
+            try:
+                addons = generate_advisory_addons(
+                    district=district,
+                    state=state,
+                    forecast=forecast,
+                    language=language,
+                    crop_types=all_crops,
+                    has_cattle=any_cattle,
+                    season=season_info["season"],
+                    season_context=season_info["context"],
+                )
+                addon_parts = [v for v in (
+                    addons.get("planting_advisory"),
+                    addons.get("harvest_advisory"),
+                    addons.get("livestock_advisory"),
+                ) if v]
+            except Exception as exc:
+                logger.warning("Advisory addons skipped for %s/%s: %s", district, language, exc)
+
             # ── Dispatch to each farmer in this language group ──────────
             for farmer in lang_farmers:
                 # Personalise the message slightly if crops differ a lot
@@ -150,14 +171,22 @@ def run_daily_alerts(dry_run: bool = False) -> Dict[str, Any]:
                     print(f"Channel: {farmer.notification_channel}")
                     print(f"Language: {language}")
                     print(f"Message:\n{final_msg}\n")
+                    if addon_parts and farmer.notification_channel == "whatsapp":
+                        print(f"Advisory addons:\n" + "\n\n".join(addon_parts) + "\n")
                     stats["farmers_notified"] += 1
                     stats["alerts_sent"] += 1
                     log_alert(farmer, farmer.notification_channel, language, final_msg, "sent")
                     continue
 
+                # Append advisory addons for WhatsApp (rich channel, no char limit)
+                # SMS keeps the core 320-char alert only
+                dispatch_msg = final_msg
+                if addon_parts and farmer.notification_channel == "whatsapp":
+                    dispatch_msg = final_msg + "\n\n" + "\n\n".join(addon_parts)
+
                 dispatch_result = dispatch_alert(
                     to_phone=farmer.phone,
-                    message=final_msg,
+                    message=dispatch_msg,
                     channel=farmer.notification_channel,
                 )
 
@@ -167,14 +196,14 @@ def run_daily_alerts(dry_run: bool = False) -> Dict[str, Any]:
                         farmer,
                         farmer.notification_channel,
                         language,
-                        final_msg,
+                        dispatch_msg,
                         "failed",
                         str(dispatch_result["errors"]),
                     )
                 else:
                     stats["farmers_notified"] += 1
                     stats["alerts_sent"] += 1
-                    log_alert(farmer, farmer.notification_channel, language, final_msg, "sent")
+                    log_alert(farmer, farmer.notification_channel, language, dispatch_msg, "sent")
 
     logger.info("Daily alert run complete. Stats: %s", stats)
     return stats
